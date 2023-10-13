@@ -17,6 +17,10 @@
 .App h2{
   font-size: 36px;
 }
+.App h3 {
+  font-size: 22px;
+  opacity: 0.7;
+}
 .App .Search-form button {
   max-width: 90px;
   margin-left: 10px;

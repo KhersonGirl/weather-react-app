@@ -1,13 +1,33 @@
+import React from "react";
+
 import "./App.css";
-import SearchWeather from "./SearchWeather";
+
 import ReactAnimatedWeather from "react-animated-weather";
 
 function App() {
+
   return (
     <div className="App container">
       <div className="Wrapper">
         <header className="App-header">
-          <SearchWeather />
+          <div className="Search-form ">
+            <form className="row">
+              <input
+                type="search"
+                placeholder="Enter a city..."
+                className="col-5"
+              />
+              <button
+                type="button"
+                className="btn btn-primary col"
+              >
+                Search
+              </button>
+              <button type="button" className="btn btn-success col">
+                Current
+              </button>
+            </form>
+          </div>
         </header>
         <section className="App-section">
           <div className="Weather-description row">
@@ -40,7 +60,7 @@ function App() {
                 <ReactAnimatedWeather
                   icon={"PARTLY_CLOUDY_DAY"}
                   color={"#0B5ED7"}
-                  size={50}
+                  size={30}
                   animate={true}
                 />
                 <p>
@@ -52,7 +72,7 @@ function App() {
                 <ReactAnimatedWeather
                   icon={"CLEAR_DAY"}
                   color={"#0B5ED7"}
-                  size={50}
+                  size={30}
                   animate={true}
                 />
                 <p>
@@ -64,7 +84,7 @@ function App() {
                 <ReactAnimatedWeather
                   icon={"CLOUDY"}
                   color={"#0B5ED7"}
-                  size={50}
+                  size={30}
                   animate={true}
                 />
                 <p>
@@ -76,14 +96,13 @@ function App() {
                 <ReactAnimatedWeather
                   icon={"RAIN"}
                   color={"#0B5ED7"}
-                  size={50}
+                  size={30}
                   animate={true}
                 />
                 <p>
                   <strong>18</strong>/13
                 </p>
               </div>
-              
             </div>
           </div>
         </section>
