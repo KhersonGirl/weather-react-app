@@ -111,7 +111,7 @@ export default function Weather() {
           <p>
             <a
               href="https://github.com/KhersonGirl/weather-react-app"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               Open-source code
             </a>

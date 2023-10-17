@@ -4,7 +4,7 @@ import Weather from "./Weather";
 
 import "./App.css";
 
-import ReactAnimatedWeather from "react-animated-weather";
+
 function App() {
 
 
