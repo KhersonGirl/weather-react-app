@@ -3,6 +3,7 @@ import ReactAnimatedWeather from "react-animated-weather";
 import "./Weather.css";
 import axios from "axios";
 import { useState } from "react";
+import FormattedDate from "./FormattedDate";
 
 
 export default function Weather(prop) {
@@ -16,7 +17,7 @@ export default function Weather(prop) {
     setWeatherData ({
       ready: true,
       temperature: Math.round(response.data.main.temp),
-      date: "Thusday 12:00",
+      date: new Date(response.data.dt *1000),
       humidity: response.data.main.humidity,
       wind: Math.round(response.data.wind.speed),
       pressure: response.data.main.pressure,
@@ -64,7 +65,7 @@ export default function Weather(prop) {
               <div className="col-6">
                 <h2>{weatherData.city}</h2>
 
-                <p>{weatherData.date}</p>
+                <p><FormattedDate date={weatherData.date}/></p>
                 <p className="text-capitalize">{weatherData.description}</p>
               </div>
               <div className="col-6 mt-3">
