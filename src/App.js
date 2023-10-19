@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div>
-      <Weather />
+      <Weather defaultCity="Paris" />
     </div>
   );
 }

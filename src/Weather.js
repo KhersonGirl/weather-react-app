@@ -1,9 +1,39 @@
 import React from "react";
 import ReactAnimatedWeather from "react-animated-weather";
 import "./Weather.css";
+import axios from "axios";
+import { useState } from "react";
 
 
-export default function Weather() {
+export default function Weather(prop) {
+  
+  const [weatherData, setWeatherData] = useState({ready: false});
+
+
+  
+  function handeleResponse(response) {
+
+    setWeatherData ({
+      ready: true,
+      temperature: Math.round(response.data.main.temp),
+      date: "Thusday 12:00",
+      humidity: response.data.main.humidity,
+      wind: Math.round(response.data.wind.speed),
+      pressure: response.data.main.pressure,
+      description: response.data.weather[0].description,
+      iconUrl: " ",
+      city: response.data.name
+    })
+
+    console.log(response.data);
+    
+  }
+
+  
+
+
+  
+  if (weatherData.ready) {
     return (
       <div className="Weather container">
         <div className="Wrapper">
@@ -23,7 +53,7 @@ export default function Weather() {
                 >
                   Search
                 </button>
-                <button type="button" className="btn btn-success col">
+                <button type="button" className="btn btn-success col d-none d-md-block ">
                   Current
                 </button>
               </form>
@@ -32,15 +62,15 @@ export default function Weather() {
           <section className="Weather-section">
             <div className="Weather-description row">
               <div className="col-6">
-                <h2>Paris</h2>
+                <h2>{weatherData.city}</h2>
 
-                <p>Thusday 12:00</p>
-                <p>Clear</p>
+                <p>{weatherData.date}</p>
+                <p className="text-capitalize">{weatherData.description}</p>
               </div>
               <div className="col-6 mt-3">
-                <p>Humidity 20%</p>
-                <p>Pressure 1010pH</p>
-                <p>Wind 5 km/h</p>
+                <p>Humidity {weatherData.humidity}%</p>
+                <p>Pressure {weatherData.pressure}pH</p>
+                <p>Wind {weatherData.wind} km/h</p>
               </div>
             </div>
             <div className="Current-temperature d-inline-flex">
@@ -51,7 +81,9 @@ export default function Weather() {
                 animate={true}
               />
 
-              <h1>23°C</h1>
+              <h1>{weatherData.temperature}</h1>
+              <span className="UnitLink">°C |</span>
+              <span className="UnitLink">F</span>
             </div>
             <div className="Weather-forcast mt-3">
               <div className="row">
@@ -111,7 +143,8 @@ export default function Weather() {
           <p>
             <a
               href="https://github.com/KhersonGirl/weather-react-app"
-              target="_blank" rel="noreferrer"
+              target="_blank"
+              rel="noreferrer"
             >
               Open-source code
             </a>
@@ -120,4 +153,12 @@ export default function Weather() {
         </footer>
       </div>
     );
+  } else {
+    const apiKey = "535cacbb3f8a0df0aeb4790235b9541f";
+    
+    let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${prop.defaultCity}&appid=${apiKey}&units=metric`;
+  
+    axios.get(apiUrl).then(handeleResponse);
+    return ("Loading...")
+  }
 }
