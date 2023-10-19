@@ -21,5 +21,5 @@ if (minutes < 10){
 }
 
 
-    return <div>{day} {hours}:{minutes}</div>;
+    return <span>{day} {hours}:{minutes}</span>;
 }

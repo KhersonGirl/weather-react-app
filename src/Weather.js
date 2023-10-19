@@ -1,19 +1,19 @@
 import React from "react";
-import ReactAnimatedWeather from "react-animated-weather";
 import "./Weather.css";
 import axios from "axios";
 import { useState } from "react";
-import FormattedDate from "./FormattedDate";
+import WeatherInfo from "./WeatherInfo";
 
 
-export default function Weather(prop) {
+export default function Weather(props) {
   
   const [weatherData, setWeatherData] = useState({ready: false});
+  const [city, setCity] = useState(props.defaultCity);
 
 
   
-  function handeleResponse(response) {
-
+  function handleResponse(response) {
+    
     setWeatherData ({
       ready: true,
       temperature: Math.round(response.data.main.temp),
@@ -25,26 +25,40 @@ export default function Weather(prop) {
       iconUrl: " ",
       city: response.data.name
     })
+  }
+  function search() {
+    const apiKey = "535cacbb3f8a0df0aeb4790235b9541f";
 
-    console.log(response.data);
-    
+    let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+    axios.get(apiUrl).then(handleResponse);
   }
 
-  
+   function handleSubmit(event){
+    event.preventDefault();
+    search();
 
 
-  
+   } 
+   function handleCityChange(event){
+    setCity(event.target.value);
+   }
+    
+
   if (weatherData.ready) {
     return (
       <div className="Weather container">
         <div className="Wrapper">
           <header className="Weather-header">
             <div className="Search-form ">
-              <form className="row">
+              <form className="row"
+              onSubmit={handleSubmit}
+              >
                 <input
                   type="search"
                   placeholder="Enter a city..."
                   className="col-7"
+                  onChange={handleCityChange}
                 />
 
                 <button
@@ -59,87 +73,10 @@ export default function Weather(prop) {
                 </button>
               </form>
             </div>
+            <WeatherInfo data={weatherData} />
+
           </header>
-          <section className="Weather-section">
-            <div className="Weather-description row">
-              <div className="col-6">
-                <h2>{weatherData.city}</h2>
-
-                <p><FormattedDate date={weatherData.date}/></p>
-                <p className="text-capitalize">{weatherData.description}</p>
-              </div>
-              <div className="col-6 mt-3">
-                <p>Humidity {weatherData.humidity}%</p>
-                <p>Pressure {weatherData.pressure}pH</p>
-                <p>Wind {weatherData.wind} km/h</p>
-              </div>
-            </div>
-            <div className="Current-temperature d-inline-flex">
-              <ReactAnimatedWeather
-                icon={"CLEAR_DAY"}
-                color={"#0B5ED7"}
-                size={75}
-                animate={true}
-              />
-
-              <h1>{weatherData.temperature}</h1>
-              <span className="UnitLink">°C |</span>
-              <span className="UnitLink">F</span>
-            </div>
-            <div className="Weather-forcast mt-3">
-              <div className="row">
-                <div className="col-3">
-                  <h3>Wed</h3>
-                  <ReactAnimatedWeather
-                    icon={"PARTLY_CLOUDY_DAY"}
-                    color={"#0B5ED7"}
-                    size={30}
-                    animate={true}
-                  />
-                  <p>
-                    <strong>20</strong>/14
-                  </p>
-                </div>
-                <div className="col-3">
-                  <h3>Thu</h3>
-                  <ReactAnimatedWeather
-                    icon={"CLEAR_DAY"}
-                    color={"#0B5ED7"}
-                    size={30}
-                    animate={true}
-                  />
-                  <p>
-                    <strong>22</strong>/16
-                  </p>
-                </div>
-                <div className="col-3">
-                  <h3>Fri</h3>
-                  <ReactAnimatedWeather
-                    icon={"CLOUDY"}
-                    color={"#0B5ED7"}
-                    size={30}
-                    animate={true}
-                  />
-                  <p>
-                    <strong>20</strong>/15
-                  </p>
-                </div>
-                <div className="col-3">
-                  <h3>Sat</h3>
-                  <ReactAnimatedWeather
-                    icon={"RAIN"}
-                    color={"#0B5ED7"}
-                    size={30}
-                    animate={true}
-                  />
-                  <p>
-                    <strong>18</strong>/13
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
+          </div>
         <footer className="Weather-footer mt-3">
           <p>
             <a
@@ -155,11 +92,11 @@ export default function Weather(prop) {
       </div>
     );
   } else {
-    const apiKey = "535cacbb3f8a0df0aeb4790235b9541f";
-    
-    let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${prop.defaultCity}&appid=${apiKey}&units=metric`;
-  
-    axios.get(apiUrl).then(handeleResponse);
+    search();
     return ("Loading...")
   }
 }
+  
+
+
+  
