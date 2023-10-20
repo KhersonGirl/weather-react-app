@@ -22,8 +22,8 @@ export default function WeatherInfo(props) {
           <p>Wind {props.data.wind} km/h</p>
         </div>
       </div>
-              <WeatherIcon code={props.data.icon} />
-      
+      <WeatherIcon code={props.data.icon} />
+
       <div className="Current-temperature d-inline-flex">
         <h1>{props.data.temperature}</h1>
         <span className="UnitLink">°C |</span>
@@ -31,7 +31,7 @@ export default function WeatherInfo(props) {
       </div>
       <div className="Weather-forcast mt-3">
         <div className="row">
-          <div className="col-3">
+          <div className="col-2">
             <h3>Wed</h3>
             <ReactAnimatedWeather
               icon={"PARTLY_CLOUDY_DAY"}
@@ -43,7 +43,7 @@ export default function WeatherInfo(props) {
               <strong>20</strong>/14
             </p>
           </div>
-          <div className="col-3">
+          <div className="col-2">
             <h3>Thu</h3>
             <ReactAnimatedWeather
               icon={"CLEAR_DAY"}
@@ -55,7 +55,7 @@ export default function WeatherInfo(props) {
               <strong>22</strong>/16
             </p>
           </div>
-          <div className="col-3">
+          <div className="col-2">
             <h3>Fri</h3>
             <ReactAnimatedWeather
               icon={"CLOUDY"}
@@ -67,7 +67,7 @@ export default function WeatherInfo(props) {
               <strong>20</strong>/15
             </p>
           </div>
-          <div className="col-3">
+          <div className="col-2">
             <h3>Sat</h3>
             <ReactAnimatedWeather
               icon={"RAIN"}
@@ -77,6 +77,30 @@ export default function WeatherInfo(props) {
             />
             <p>
               <strong>18</strong>/13
+            </p>
+          </div>
+          <div className="col-2">
+            <h3>Sun</h3>
+            <ReactAnimatedWeather
+              icon={"RAIN"}
+              color={"#0B5ED7"}
+              size={30}
+              animate={true}
+            />
+            <p>
+              <strong>15</strong>/11
+            </p>
+          </div>
+          <div className="col-2">
+            <h3>Mo</h3>
+            <ReactAnimatedWeather
+              icon={"RAIN"}
+              color={"#0B5ED7"}
+              size={30}
+              animate={true}
+            />
+            <p>
+              <strong>17</strong>/10
             </p>
           </div>
         </div>
