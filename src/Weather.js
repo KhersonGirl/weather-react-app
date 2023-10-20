@@ -49,9 +49,9 @@ export default function Weather(props) {
     return (
       <div className="Weather container">
         <div className="Wrapper">
-          <header className="Weather-header">
+          <header className="Weather-header mt-3">
             <div className="Search-form ">
-              <form className="row"
+              <form className="row ms-1"
               onSubmit={handleSubmit}
               >
                 <input

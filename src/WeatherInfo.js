@@ -1,6 +1,7 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
 import ReactAnimatedWeather from "react-animated-weather";
+import "./WeatherInfo.css";
 
 
 
@@ -8,15 +9,15 @@ export default function WeatherInfo(props) {
     return ( 
     <div className="WeatherInfo">
         
-          <section className="Weather-section">
-            <div className="Weather-description row">
+          
+            <div className=" row mt-3">
               <div className="col-6">
-                <h2>{props.data.city}</h2>
+                <h2 className="mb-2">{props.data.city}</h2>
 
                 <p><FormattedDate date={props.data.date}/></p>
                 <p className="text-capitalize">{props.data.description}</p>
               </div>
-              <div className="col-6 mt-3">
+              <div className="col-6 mt-5">
                 <p>Humidity {props.data.humidity}%</p>
                 <p>Pressure {props.data.pressure}pH</p>
                 <p>Wind {props.data.wind} km/h</p>
@@ -86,7 +87,7 @@ export default function WeatherInfo(props) {
                 </div>
               </div>
             </div>
-          </section>
+         
         </div>
     
         )
