@@ -1,7 +1,7 @@
 .WeatherInfo h1{
-  font-size: 64px;
+  font-size: 76px;
   margin-bottom: 0;
-  margin-left: 30px;
+  margin-left: 15px;
   margin-top: 10px;
 
 }
@@ -12,6 +12,11 @@
 .WeatherInfo h3 {
   font-size: 22px;
   opacity: 0.7;
+}  
+.WeatherInfo  p {
+  margin-bottom: 0;
+  opacity: 0.7;
+  line-height: 19px;
 }
 
 .WeatherInfo .UnitLink {
@@ -20,17 +25,11 @@
     margin-left: 5px;
     font-size: 20px;
     line-height: 1;
-}
+}    
 
 .WeatherInfo .Current-temperature {
   margin-top: 25px;
   margin-bottom: 25px;
-}
-
-.WeatherInfo  p {
-  margin-bottom: 0;
-  opacity: 0.7;
-  line-height: 19px;
-}
+}  
 
 

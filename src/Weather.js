@@ -14,17 +14,17 @@ export default function Weather(props) {
   
   function handleResponse(response) {
     
-    setWeatherData ({
+    setWeatherData({
       ready: true,
       temperature: Math.round(response.data.main.temp),
-      date: new Date(response.data.dt *1000),
+      date: new Date(response.data.dt * 1000),
       humidity: response.data.main.humidity,
       wind: Math.round(response.data.wind.speed),
       pressure: response.data.main.pressure,
       description: response.data.weather[0].description,
-      iconUrl: " ",
-      city: response.data.name
-    })
+      icon: response.data.weather[0].icon,
+      city: response.data.name,
+    });
   }
   function search() {
     const apiKey = "535cacbb3f8a0df0aeb4790235b9541f";
