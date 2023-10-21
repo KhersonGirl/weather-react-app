@@ -1,0 +1,15 @@
+.App {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.App a {
+    text-decoration: none;
+}
+.App a:hover {
+    text-decoration: underline;
+}
+ .App footer  .FooterLink {
+  font-size: 11px;
+  font-family: monospace;
+  margin: 10px;
+}

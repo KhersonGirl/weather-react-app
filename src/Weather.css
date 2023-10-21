@@ -1,25 +1,20 @@
 .Weather {
-font-family: Arial, Helvetica, sans-serif;
-  max-width: 560px;
+  font-family: Arial, Helvetica, sans-serif;
   margin-top: 60px;
- color: rgb(49, 49, 49);
+  color: rgb(49, 49, 49);
 }
 .Weather .Search-form button {
   max-width: 90px;
   margin-left: 10px;
 }
 .Weather a {
-    text-decoration: none;
+  text-decoration: none;
 }
 .Weather a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 .Weather .Wrapper {
   padding: 30px;
   border: solid 1px gray;
   border-radius: 10px;
-}
-.Weather-footer p {
-  font-size: 14px;
-  font-family: monospace;
 }

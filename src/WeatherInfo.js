@@ -3,6 +3,7 @@ import FormattedDate from "./FormattedDate";
 import ReactAnimatedWeather from "react-animated-weather";
 import "./WeatherInfo.css";
 import WeatherIcon from "./WeatherIcon";
+import WeatherTemperature from "./WeatherTemperature";
 
 export default function WeatherInfo(props) {
   return (
@@ -17,19 +18,23 @@ export default function WeatherInfo(props) {
           <p className="text-capitalize">{props.data.description}</p>
         </div>
         <div className="col-6 mt-5">
-          <p>Humidity {props.data.humidity}%</p>
-          <p>Pressure {props.data.pressure}pH</p>
-          <p>Wind {props.data.wind} km/h</p>
+          <p>
+            Humidity <span className="WeatherData">{props.data.humidity}</span>%
+          </p>
+          <p>
+            Pressure <span className="WeatherData"> {props.data.pressure}</span>
+            hPa
+          </p>
+          <p>Wind
+            <span className="WeatherData"> {props.data.wind}</span>km/h
+          </p>
         </div>
       </div>
       <WeatherIcon code={props.data.icon} />
 
-      <div className="Current-temperature d-inline-flex">
-        <h1>{props.data.temperature}</h1>
-        <span className="UnitLink">°C |</span>
-        <span className="UnitLink">F</span>
-      </div>
-      <div className="Weather-forcast mt-3">
+      <WeatherTemperature celsius={props.data.temperature} />
+
+      <div className="Weather-forcast">
         <div className="row">
           <div className="col-2">
             <h3>Wed</h3>
@@ -104,7 +109,7 @@ export default function WeatherInfo(props) {
             </p>
           </div>
         </div>
-      </div>
+      </div> 
     </div>
   );
 }

@@ -77,24 +77,14 @@ export default function Weather(props) {
 
           </header>
           </div>
-        <footer className="Weather-footer mt-3">
-          <p>
-            <a
-              href="https://github.com/KhersonGirl/weather-react-app"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Open-source code
-            </a>
-            , by Nataliia Khanina
-          </p>
-        </footer>
+       
       </div>
     );
   } else {
     search();
     return ("Loading...")
   }
+ 
 }
   
 
