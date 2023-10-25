@@ -9,10 +9,7 @@
   font-size: 36px;
   font-weight: 600;
 }
-.WeatherInfo h3 {
-  font-size: 22px;
-  opacity: 0.7;
-}  
+
 .WeatherInfo  p {
   margin-bottom: 0;
   opacity: 0.7;
