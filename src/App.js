@@ -7,10 +7,10 @@ function App() {
   return (
     <div className="App">
       <div className="container p-0">
-        <Weather defaultCity="Berlin" />
+        <Weather defaultCity="Kholmsk" />
         <footer>
           <p className="FooterLink">
-            This project was coded by Khanina Nataliia and is{" "}
+            This project was coded by Khanina Nataliia, is{" "}
             <a
               href="https://github.com/KhersonGirl/weather-react-app"
               target="_blank"
