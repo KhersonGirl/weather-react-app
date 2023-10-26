@@ -2,19 +2,28 @@
   font-family: Arial, Helvetica, sans-serif;
   margin-top: 60px;
   color: rgb(49, 49, 49);
+  padding: 0;
 }
 .Weather .Search-form button {
-  max-width: 90px;
   margin-left: 10px;
+  background-color: #7C238C;
+  border: solid 1px#7C238C;
+}
+.Search-form input {
+  border-radius: 8px;
+  border: solid 1px rgb(185, 185, 185);
+  background: #f9f7fe;
 }
 .Weather a {
   text-decoration: none;
+  color: #337ca0;
 }
 .Weather a:hover {
   text-decoration: underline;
 }
 .Weather .Wrapper {
   padding: 30px 30px 0px 30px;
-  border: solid 1px gray;
+  border: solid 1px rgb(185, 185, 185);
+  background: #fff;
   border-radius: 10px;
 }

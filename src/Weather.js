@@ -59,20 +59,18 @@ console.log(response);
                 <input
                   type="search"
                   placeholder="Enter a city..."
-                  className="col-7"
+                  className="col-8"
                   onChange={handleCityChange}
                 />
 
                 <button
                   type="button"
-                  className="btn btn-primary  col"
+                  className="btn btn-primary  col-3"
                   autoFocus="on"
                 >
                   Search
                 </button>
-                <button type="button" className="btn btn-success col d-none d-md-block ">
-                  Current
-                </button>
+                
               </form>
             </div>
             <WeatherInfo data={weatherData} />

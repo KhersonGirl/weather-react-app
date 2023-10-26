@@ -1,3 +1,4 @@
+
 .WeatherInfo h1{
   font-size: 76px;
   margin-bottom: 0;
@@ -19,7 +20,8 @@
   margin-top: 45px;
 }
 .WeatherInfo .WeatherData{
-  color:#0B5ED7 ;
+  color:#680E4B;
+  font-weight: 700;
 }
 
 .WeatherInfo .UnitLink {
