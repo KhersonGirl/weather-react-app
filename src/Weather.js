@@ -64,9 +64,10 @@ console.log(response);
                 />
 
                 <button
-                  type="button"
+                  type="submit"
                   className="btn btn-primary  col-3"
                   autoFocus="on"
+                  onClick={handleSubmit}
                 >
                   Search
                 </button>
